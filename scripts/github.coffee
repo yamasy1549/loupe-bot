@@ -1,8 +1,13 @@
 request = require 'request'
 cronJob = require('cron').CronJob
 
-getPullRequests = (msg) ->
-  url = "https://api.github.com/repos/sue738/senseinote/pulls?state=open"
+repositories = [
+  "senseinote": "https://api.github.com/repos/sue738/senseinote/pulls?state=open",
+  "senseiportal": "https://api.github.com/repos/sue738/senseiportal/pulls?state=open"
+]
+
+getPullRequests = (msg, target) ->
+  url = repositories[target]
   options =
     url: url
     timeout: 2000
@@ -28,8 +33,14 @@ getPullRequests = (msg) ->
 
 module.exports = (robot) ->
   robot.respond /(pull_request|pr) senseinote/i, (msg) ->
-    getPullRequests(msg)
+    getPullRequests(msg, "senseinote")
+  robot.respond /(pull_request|pr) senseiportal/i, (msg) ->
+    getPullRequests(msg, "senseiportal")
 
   new cronJob('0 0 10 * * 1-5',() ->
-    getPullRequests(msg)
+    getPullRequests(msg, "senseinote")
+  ).start()
+
+  new cronJob('0 0 10 * * 1-5',() ->
+    getPullRequests(msg, "senseiportal")
   ).start()
