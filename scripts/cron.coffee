@@ -7,6 +7,6 @@ module.exports = (robot) ->
   , null, true, "Asia/Tokyo"
   ###
 
-  new cronJob '0 30 18 * * 1', () =>
-    robot.send room: "#general", "エンジニアMTGだよー @everyone"
+  new cronJob '0 00 20 * * 1', () =>
+    robot.send room: "#general", "エンジニアMTGだよー @channel"
   , null, true, "Asia/Tokyo"
