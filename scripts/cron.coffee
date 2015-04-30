@@ -1,3 +1,7 @@
+# 時間のお知らせをする
+# Description:
+#   指定時間のお知らせ
+
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
