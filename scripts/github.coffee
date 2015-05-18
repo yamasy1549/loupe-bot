@@ -1,3 +1,7 @@
+# GitHub連携
+# Description:
+#   GitHubと連携する
+
 request = require 'request'
 cronJob = require('cron').CronJob
 

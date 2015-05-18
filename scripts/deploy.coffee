@@ -1,3 +1,8 @@
+# デプロイのお知らせ
+# Description:
+#   デプロイのお知らせ
+#
+
 module.exports = (robot) ->
   robot.hear /deploy of master/i, (msg) ->
     if /senseinote/.test(msg.message.text)

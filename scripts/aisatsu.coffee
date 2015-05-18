@@ -1,3 +1,7 @@
+# あいさつする
+# Description:
+#   bot挨拶
+
 module.exports = (robot) ->
 
   ohayo_messages = [
